@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+	<meta charset="utf-8" />
+  <link href="Style/MyStyle.css" rel="stylesheet"/>
+
+  <style>
+    .content_source {
+      flow-into: myflow;
+    }
+
+    .region1 {
+      flow-from: myflow;
+    }
+
+    #data-source {
+  -ms-flow-into: flow1;
+}
+
+    .flow1-container {
+  -ms-flow-from: flow1;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="region1">
+    1
+  </div>
+  <div class="flow1-container">
+    2
+  </div>
+  <div >
+    3
+  </div>
+
+<div class="content_source" style="background-color: lightblue">
+  my content
+</div>
+
+<iframe id="data-source" src="content_source.html"></iframe>
+
+
+</body>
+</html>
