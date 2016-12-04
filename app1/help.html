@@ -1,0 +1,48 @@
+﻿
+<html>
+<head>
+  <title>Integrationscockpit Lx</title>
+  <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+  <base target="iclx.app_help">
+  <script type="text/javascript">
+    var request;
+    if (window.XMLHttpRequest)
+      request = new XMLHttpRequest();
+    else
+      request = new ActiveXObject("Microsoft.XMLHTTP");
+
+    var myurl = "https://intra.bmwgroup.net/iclx/de/999_iclx.app_aktuell/index.htm";
+    myurl = "http://www.google.com";
+    myurl = "http://localhost:60226/help_001.html";
+    try {
+      request.open('GET', myurl, false);
+      request.send();
+      if (request.status === 404) {
+        alert("The page you are trying to reach is not available." + request.status);
+      }
+    } catch (e) {
+      alert("The page you are trying to reach is not available.Exception" + e.message);
+    } 
+  </script>
+</head>
+
+<body lang="DE">
+
+  <div id="head">Welcome to the</div>
+  <h1>E/E Integrationscockpit Lx (ICLx)</h1>
+
+  <div id="iclx-css-frame-aktuell">
+    <iframe src="https://intra.bmwgroup.net/iclx/de/999_iclx.app_aktuell/index.htm" height=350px name="iclx.app_aktuell" frameborder=0 scrolling=no>
+      bla
+    </iframe>
+  </div>
+
+  <div id="iclx-css-frame-welcome">
+    <iframe src="https://intra.bmwgroup.net/iclx/de/999_iclx.app_welcome/index.htm" height=380px name="iclx.app_welcome" frameborder=0 scrolling=no>
+      Die Welcome-Sprungelemente k&ouml;nnen derzeit nicht angezeigt werden.
+    </iframe>
+  </div>
+
+</body>
+</html>
+

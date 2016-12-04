@@ -1,0 +1,64 @@
+﻿
+<html>
+<head>
+  <title>Integrationscockpit Lx</title>
+  <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+  <base target="iclx.app_help">
+  <script type="text/javascript">
+  // Creates an object which can read files from the server
+  var reader = new XMLHttpRequest();
+
+  var checkFor = "https://intra.bmwgroup.net/iclx/de/999_iclx.app_aktuell/index.htm";
+  //checkFor = "http://www.google.com";
+
+
+  // Opens the file and specifies the method (get)
+  // Asynchronous is true
+  reader.open('get', checkFor, true);
+
+  //check each time the ready state changes
+  //to see if the object is ready
+  reader.onreadystatechange = checkReadyState;
+
+  function checkReadyState() {
+
+    if (reader.readyState === 4) {
+
+      //check to see whether request for the file failed or succeeded
+      if (((reader.status == 200 || reader.status == 0) && reader.responseBody != null))
+      {
+        alert(checkFor+' exists');
+      } else
+      {
+        alert(checkFor + '+ does NOT exist');
+      }
+
+    } 
+
+  }
+
+
+  reader.send();
+    </script>
+</head>
+
+<body lang="DE">
+
+  <div id="head">Welcome to the</div>
+  <h1>E/E Integrationscockpit Lx (ICLx)</h1>
+
+  <div id="iclx-css-frame-aktuell">
+    <iframe src="https://intra.bmwgroup.net/iclx/de/999_iclx.app_aktuell/index.htm" height=350px name="iclx.app_aktuell" frameborder=0 scrolling=no>
+      bla
+    </iframe>
+  </div>
+
+  <div id="iclx-css-frame-welcome">
+    <iframe src="https://intra.bmwgroup.net/iclx/de/999_iclx.app_welcome/index.htm" height=380px name="iclx.app_welcome" frameborder=0 scrolling=no>
+      Die Welcome-Sprungelemente k&ouml;nnen derzeit nicht angezeigt werden.
+    </iframe>
+  </div>
+
+</body>
+</html>
+
