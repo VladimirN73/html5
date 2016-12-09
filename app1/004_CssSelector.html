@@ -4,13 +4,86 @@
     <title></title>
   <meta charset="utf-8"/>
   <style>
-    a {background-color: green}
+    a {
+      color: green;
+      text-decoration: none
+    }
     a.myclass {font-weight:  bolder}
+    #myid {color:  red}
+
+    a:hover, #myid:hover {color: yellow}
+
+    p {
+      text-transform: capitalize;
+    }
+
+    div.testborder {
+      border-width: 10px 1px 5px 20px;
+      border-color: black;
+      border-style: solid
+    }
+
+    p.test1 span {
+      color:red
+    }
+
+    p.test2 > span {
+      color:blue
+    }
+
+    H1 { color: red }
+    EM { color: red }
+    H1 EM { color: blue }
 
   </style>
 </head>
 <body>
-  <a href="http://microsoft.com">Microsoft</a>
-  <a class="myclass" href="http://google.com">Google</a>
+<a href="http://microsoft.com">Microsoft</a>
+<a class="myclass" href="http://google.com">Google</a>
+<a id="myid" href="http://yahoo.com">Yahoo</a>
+
+<p>
+  my short text
+  <div class="testborder">
+    my small div
+  </div>
+  <ul style="list-style-type: none">
+    <li>one</li>
+    <li>two</li>
+  </ul>
+</p>
+
+<br/>
+
+<p class="test1">
+  <h2>Test <span>test</span></h2>
+    <span>direct child 001</span>
+    <span>direct child 002</span>
+    <span>direct child 003</span>
+  
+  <div>
+    <span>Span 001</span>
+    <span>Span 002</span>
+    <span>Span 003</span>
+  </div>
+</p>
+
+<br />
+
+<p class="test2">
+  <div>
+    <span>Span 101</span>
+    <span>Span 102</span>
+    <span>Span 103</span>
+  </div>
+</p>
+
+  <H1>
+    This <SPAN class="myclass">
+      headline
+      is <EM>very</EM> important
+    </SPAN>
+  </H1>
+
 </body>
 </html>

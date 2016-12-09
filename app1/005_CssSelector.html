@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>My Title</title>
+  <meta charset="utf-8"/>
+  <style>
+
+    div.test1 span {color:red}
+
+    div.test2 > span {color:blue}
+
+    H1 { color: red }
+    EM { color: red }
+    H1 EM { color: blue }
+
+    #a11 { background-color: yellow}
+    #a22 { background-color: lightcyan}
+
+    html {background-color: lightgray}
+
+  </style>
+</head>
+<body>
+
+<br/>
+
+<h1>All span shall be red</h1>
+
+<div class="test1">
+  <span id="a11">direct child 001</span>
+  <h2 id="a22">Test <span>inner span</span></h2>
+  <span id="a33">direct child 002</span>
+
+  <div>
+    <span>Div Span 001</span>
+  </div>
+</div>
+
+<br />
+
+  <h1>Only childs shall be blue</h1>
+
+<div class="test2">
+  <span>direct child 001</span>
+  <h2>Test <span>inner span</span></h2>
+  <span>direct child 002</span>
+
+  <div>
+    <span>Div Span 001</span>
+  </div>
+</div>
+
+
+</body>
+</html>
