@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html  manifest="app.appcache">
+<head>
+  <title>XXX</title>
+  <meta charset="utf-8"/>
+  <script>
+  // Check browser support
+  window.onload = function() {
+    if (typeof(window.localStorage) !== "undefined") {
+      // Store
+      window.localStorage.setItem("lastname", "Smith");
+      // Retrieve
+      document.getElementById("result").innerHTML = window.localStorage.getItem("lastname");
+    } else {
+      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+  }
+  </script>
+</head>
+<body>
+
+
+  <h2 id="result"></h2>
+
+
+</body>
+
+</html>
