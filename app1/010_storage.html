@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>010 Storage</title>
+  <meta charset="utf-8"/>
+  <script type="text/javascript">
+    window.onload = function () {
+      if (typeof (window.sessionStorage) !== "undefined") {
+        // Store
+        window.localStorage.setItem("lastname", "Smith");
+        // Retrieve
+        document.getElementById("result").innerHTML = window.sessionStorage.getItem("lastname");
+      } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+      }
+    }
+    function myLocalSave() {
+      var x = document.getElementById("myText").value;
+      window.sessionStorage.setItem("myValue", x);
+    }
+
+    function myLocalLoad() {
+      var item = document.getElementById("myLoadedText");
+      var x = window.sessionStorage.getItem("myValue");
+      item.setAttribute("value", x);
+    }
+  </script>
+</head>
+<body>
+
+<h3>Local Session storage</h3>
+  <label for="myText">Value to store</label>
+  <input id="myText" type="text" style="width: 200px" />
+  <input id="localSave" type="button" value="Save" onclick="myLocalSave()" />
+
+<br/>
+
+  <label for="myText">Value from store</label>
+  <input id="myLoadedText" type="text" style="width: 200px" />
+  <input id="localLoad" type="button" value="Load" onclick="myLocalLoad()" />
+
+
+
+</body>
+</html>

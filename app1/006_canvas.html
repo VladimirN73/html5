@@ -1,0 +1,50 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Canvas</title>
+  <meta charset="utf-8"/>
+  <style>
+    canvas {
+      border-color: black;
+      border-style: solid;
+      margin: auto;
+      display: block;
+      width: 150px;
+      height: 150px;
+    }
+    div {
+      border-color: black;
+      border-style: solid;
+      margin: auto;
+      width: 150px;
+      height: 150px;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function () {
+      var drawArea = document.getElementById("drawArea");
+      var ctx = drawArea.getContext("2d");
+
+      ctx.beginPath();
+      ctx.moveTo(10, 20);
+      ctx.lineTo(100, 20);
+      ctx.stroke();
+
+
+    }
+  </script>
+</head>
+<body>
+<h3> My Canvas</h3>
+<canvas id="drawArea">
+
+</canvas>
+
+<br/>
+<br/>
+
+<div> my div</div>
+
+</body>
+</html>
