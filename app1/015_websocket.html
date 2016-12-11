@@ -59,13 +59,20 @@
     output.appendChild(pre);
   }
 
-  window.addEventListener("load", init, false);
+  //window.addEventListener("load", init, false);
+
+  function run()
+  {
+    init();
+  }
 
   </script>
 </head>
 <body>
   <h2>WebSocket Test</h2>
 
+   <input id="runConnection" type="button" value="Run WebSocket Connection" onclick="run()" />
+
   <div id="output"></div>
-          </body>
-          </html>
+</body>
+</html>
