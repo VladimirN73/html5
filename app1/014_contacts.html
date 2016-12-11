@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>014 Contacts</title>
+  <meta charset="utf-8"/>
+  <style>
+  #contacts>li:hover{
+    background-color: yellow;
+  }
+  </style>
+  <script type="text/javascript" src="./Scripts/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $("#contacts li").click(function(event){
+        var email =($(this).find(".email").html());
+        var origin ="http://localhost/html5/014_support.html";
+        window.parent.postMessage(email, origin);
+      });
+    });
+  </script>
+</head>
+<body>
+   <ul id="contacts">
+    <li> <p class="name">NameA</p> <p class="email">emailA</p> </li>
+    <li> <p class="name">NameB</p> <p class="email">emailB</p> </li>
+   </ul>
+</body>
+</html>

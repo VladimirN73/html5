@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>014 Support</title>
+  <meta charset="utf-8"/>
+  <style>
+    #form{
+      width:400px;
+      float:left;
+    }
+    #contacts{
+      width:200px;
+      float:left;
+    }
+    #contacts iframe{
+      border: none;
+      height:400px;
+    }
+    fieldset{
+      width: 400px;
+      border:none;
+    }
+    fieldset legend {
+      background-color: #ddd;
+      padding: 0 64px 0 2px;
+    }
+    fieldset>ol>li{
+      margin: 0 0 9px 0;
+      padding: 0;
+    }
+  </style>
+  
+  <script type="text/javascript" src="./Scripts/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $(window).bind("message", function(event){
+        var value = event.originalEvent.data;
+        $("#to").val(value);
+        //document.getElementById("to").value = value;
+        document.getElementById("result").innerHTML = value; 
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="form">
+    <form id="supportform">
+      <fieldset>
+        <ol>
+          <li> 
+            <label for="to">To</label>
+            <input type="email" name="to" id="to">
+          </li>
+        </ol>
+      </fieldset>
+    </form>
+  </div>
+  <div id="contacts">
+    <iframe src="http://localhost/contacts/014_contacts.html"></iframe>
+  </div>
+
+  <h2 id="result"></h2>
+</body>
+</html>
