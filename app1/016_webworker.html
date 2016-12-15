@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>016 Web Worker</title>
+  <meta charset="utf-8"/>
+  <style>
+  </style>
+  <script type="text/javascript" src="./Scripts/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript">
+
+    var worker;
+    var result;
+
+    window.onload = function(e) {
+      result = document.getElementById("result");
+    };
+    
+
+    function doit()
+    {
+      worker = new Worker("./Scripts/myworker.js");
+      worker.onmessage = onmessage;
+      worker.onerror = onerror;
+
+      var amount = document.getElementById("work");
+      worker.postMessage(amount.value);
+      result.innerHTML = "started ...";
+    };
+
+    function terminate()
+    {
+      worker.terminate();
+      result.innerHTML = "terminated ...";
+    };
+
+    function onmessage(e)
+{
+  result.innerHTML = e.data;
+};
+
+function onerror(e)
+{
+  result.innerHTML = e.message;
+};
+
+  </script>
+</head>
+<body>
+
+  <h2> Web Worker</h2>
+
+  <h2 id="result"></h2>
+
+  <label for="work">Amount</label>
+  <input id="work" type="text" value="10000">
+  <input id="doit" type="button" value="Run Web Worker" onclick="doit()" />
+
+    <input id="doit" type="button" value="Terminate Web Worker" onclick="terminate()" />
+
+</body>
+</html>

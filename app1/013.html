@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Geo location</title>
+  <meta charset="utf-8"/>
+  <script>
+  
+  var result;
+  var location;
+
+  window.onload = function() {
+    result = document.getElementById("result");
+    mylocation = window.navigator.geolocation;  
+  };
+
+  function runGeoLocation()
+  {  
+
+    if (mylocation !== "undefined")
+    {        
+     var posOptions = {
+       enableHighAccuracy: false, 
+       timeout:2000,
+       maximumAge:20000
+      };
+     mylocation.getCurrentPosition(successPosition, errorPosition, posOptions);
+    }
+    else
+    {
+      result.innerHTML = "geo location is not supported";
+    }
+  }
+
+
+  function successPosition(x)
+  {
+    if (x!=null)
+    {
+    result.innerHTML = "lat: " + x.coords.latitude  + " long: " + x.coords.longitude;
+    }
+  }
+
+  function errorPosition(x)
+  {
+    result.innerHTML = x.message;
+  }
+
+  </script>
+</head>
+<body>
+
+  <h1>Geo Location </h1>
+
+  <h2 id="result"></h2>
+
+   <input id="localSave" type="button" value="Run GeoLocation" onclick="runGeoLocation()" />
+
+
+</body>
+
+</html>

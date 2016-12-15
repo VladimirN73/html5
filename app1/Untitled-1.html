@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script type="text/javascript" src="./Scripts/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="./Scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="./Scripts/jquery.simple-color.js"></script>
+        
+        <script type="text/javascript">
+         function hasColorSupport(){
+             input = document.createElement("input");
+             input.setAttribute("type", "color");
+             var hasColor = (input.type !=="text" );
+         }
+
+         if (!hasColorSupport()) {
+             $('input[type=color]').simpleColor();
+         }
+        </script>
     </head>
     <body>
 

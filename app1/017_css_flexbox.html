@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>017 CSS Flexbox</title>
+<meta charset="utf-8"/>
+<style>
+
+.flex-item {
+    background-color: cornflowerblue;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.flex-container1, .flex-container2 {
+    display: flex;    
+    width: 400px;
+    height: 250px;
+    background-color: lightgrey;
+}
+
+.flex-container2 {    
+    flex-direction:column;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<div class="flex-container1">
+  <div class="flex-item">flex item 1</div>
+  <div class="flex-item">flex item 2</div>
+  <div class="flex-item">flex item 3</div>  
+</div>
+
+
+<div class="flex-container2">
+  <div class="flex-item">flex item 1</div>
+  <div class="flex-item">flex item 2</div>
+  <div class="flex-item">flex item 3</div>  
+</div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html  manifest="app.appcache">
+<head>
+  <title>App Cache</title>
+  <meta charset="utf-8"/>
+  <script>
+  // Check browser support
+
+  var result;
+
+  window.onload = function() {
+    
+    var appcache = window.applicationCache;
+    result = document.getElementById("result");
+
+
+    if (typeof(appcache) !== "undefined") {     
+      
+      appcache.oncached      = function (e) { result.innerHTML = "cached"};
+      appcache.onnoupdate    = function (e) { result.innerHTML = "no update available"};
+      appcache.onupdateready = function (e) { appcache.swapCache(); result.innerHTML = "swapped"; }
+      appcache.onchecking    = function (e) { result.innerHTML = "checking"};
+      appcache.ondownloading = function (e) { result.innerHTML = "downloading"};
+      appcache.onprogress    = function (e) { result.innerHTML = "progress"};
+      appcache.onobsolete    = function (e) { result.innerHTML = "obsolete"};
+      appcache.onerror = cacheError;
+      
+      result.innerHTML = appcache.status;
+    }
+    else
+    {
+      result.innerHTML = "Sorry, your browser does not support appcache...";
+    }
+  };
+
+  function cacheError(e)
+  {
+      result.innerHTML = "error" + e.message;
+  }  
+
+  </script>
+</head>
+<body>
+
+
+  <h2 id="result"></h2>
+
+ <a href="help.html"> my help</a>
+
+</body>
+
+</html>
