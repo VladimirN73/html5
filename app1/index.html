@@ -2,12 +2,42 @@
 <html>
 <head>
   <title>My HTML5</title>
-	<meta charset="utf-8" />
+  <meta charset="utf-8"/>
+  <script src="./Scripts/jquery-3.1.1.min.js"></script>
+
+  <script>
+    window.onload = function () {
+
+      replaceHrefs();
+
+    }
+
+    function replaceHrefs() {
+      $("#mylist a").each(function () {
+        var str = $(this).attr('href');
+        $(this).html(str);
+      });
+    }
+
+  </script>
 </head>
-<body style="background-color:gray">
+<body style="background-color: lightgray">
 
 <h1>Welcome to HTML5</h1>
 
+<h2> Link list (semi dynamic)</h2>
+<ul id="mylist">
+  <li> <a href="./002_common.html"></a> </li>
+  <li> <a href="./015_websocket.html"></a> </li>
+  <li> <a href="./017_css_flexbox.html"></a> </li>
+</ul>
+
+<h2> Link list (static)</h2>
+
+<ul>
+  <li> <a href="./002_common.html">002_common.html</a> </li>
+
+</ul>
 
 </body>
 </html>
