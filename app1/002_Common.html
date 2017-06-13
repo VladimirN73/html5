@@ -3,6 +3,71 @@
 <head>
   <title>002</title>
 	<meta charset="utf-8" />
+  <script>
+
+ var result;
+
+ window.onload = function()
+ {
+   result = document.getElementById("result");
+
+ }
+
+  function myFunction()
+  {
+    for(a2=1; a2<=3; a2++)
+    {
+      for(a3=1; a3<=9; a3++)
+      {
+        for(b3=0; b3<=9; b3++)
+        {
+          for(b1=1; b1<=2; b1++)
+          {
+            for(c1=1; c1<=9; c1++)
+            {
+              for(c2=0; c2<=9; c2++)
+              {
+
+                for(b2=0; b2<=9; b2++)
+                {
+
+                    user1 = 10*a2 + a3;
+                    user2 = 10*a3 + b3;
+                    user3 = 10*b1 + c1;
+                    user4 = 10*c1 + c2;
+
+                    summe4 = user1+user2+user3+user4;
+                    summeVertical = 100*a2 + 10*b2 + c2;
+
+                    summeHorizontal = 100*b1 + 10*b2+ b3;
+
+                    summe3_1 = user1+user2+user3;
+                    summe3_2 = user1+user2+user4;
+                    summe3_3 = user1+user4+user3;
+                    summe3_4 = user4+user2+user3;
+                    
+                    if ((summe4 == summeVertical) &&
+                        (summe3_1 == summeHorizontal ||
+                         summe3_2 == summeHorizontal ||
+                         summe3_3 == summeHorizontal ||
+                         summe3_4 == summeHorizontal
+                         )
+                        )
+                    {
+                      result.innerHTML += summe4 + " ";
+                      result.innerHTML += a2 + " " + a3 + " " +
+                               b1 + " " + b2 + " " + b3 + " " +
+                               c1 + " " + c2;
+                    }
+                }
+              }            
+            }           
+          }          
+        }
+      }
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -20,5 +85,10 @@
                <option value = "3">three</option>
                <option value = "4">four</option>
              </select>
+
+<button type="button" onclick="myFunction()">Calculate</button>
+
+<div id="result" style="width:400px"></div>
+
 </body>
 </html>
