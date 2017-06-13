@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/app1/media/audio.mp3
+/app1/media/video.mp4
+/app1/Web.config
+/.vs/HTML5/v14/.suo
+/.vs/config/applicationhost.config
