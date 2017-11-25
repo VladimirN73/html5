@@ -1,0 +1,179 @@
+<html>
+<head>
+  <title>Game of Life</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+<style>
+  .myMap
+  {
+    color: red;
+    font-family: Courier New, Courier, monospace;
+  }
+</style>
+<script type="text/javascript">
+
+  var myArea;
+  var mapArray= [];
+
+
+ window.onload = function()
+ {
+   initArraySimple();
+
+ }
+
+  function initArrayZero()
+  {
+    var iRows = 10;
+    var iCols = 10;
+   
+    for(row=0; row < iRows; row++)
+    {
+      var rowArray=[];
+      for(column=0; column <iCols; column++ )
+      {
+        rowArray[column]="0";
+      }
+      mapArray[row]=rowArray;
+    }
+  }
+
+  function initArraySimple()
+  {    
+      mapArray[0]=["1","0","0","0","0","0","0","0","0","0"];
+      mapArray[1]=["0","1","0","0","0","0","0","0","0","0"];
+      mapArray[2]=["0","0","1","0","0","0","0","0","0","0"];
+      mapArray[3]=["0","0","0","1","0","0","0","0","0","0"];
+      mapArray[4]=["0","0","1","0","1","0","0","0","0","0"];
+      mapArray[5]=["0","0","0","0","0","1","0","0","0","0"];
+      mapArray[6]=["0","0","0","0","1","0","1","0","0","0"];
+      mapArray[7]=["0","0","0","0","0","1","0","1","0","0"];
+      mapArray[8]=["0","0","0","0","0","0","0","0","1","0"];
+      mapArray[9]=["0","0","0","0","0","0","0","0","0","1"];    
+  }
+
+  function getAmountOfFriends(row, col)
+  {
+    var ret=0;
+    var startRow = row-1;
+    var startCol = col-1;
+
+    for(var irow=startRow; irow<startRow+3; irow++)
+    {
+      if (irow<0) continue;
+      if (irow>=mapArray.length) continue;
+
+      for(var icol=startCol; icol<startCol+3; icol++)
+      {
+        if (icol<0) continue;
+        if (icol>=mapArray[irow].length) continue;
+        if (mapArray[irow][icol]!="0")
+        {
+          ret++;
+        }
+      }
+    }
+    if (mapArray[row, col]!="0") ret--;
+
+    return ret;
+  }
+
+function getStatus(amountFriends, status)
+{
+  if (amountFriends<2) return 0;
+  if (amountFriends>3) return 0;
+
+  if (amountFriends==2) return status;
+
+  if (amountFriends==3) return 1;
+}
+
+  function recalculateArray()
+  {
+    console.info("-->recalculateArray:iCountRedraw" + iCountRedraw);
+    var newArray=[];
+    
+    console.info("-->recalculateArray:mapArray.length=" + mapArray.length);
+
+    for(var row=0; row < mapArray.length; row++)
+    {
+      var rowArray=[];
+      for(var col=0; col <mapArray[row].length; col++ )
+      {
+        var iFriends = getAmountOfFriends(row, col);
+        var status = getStatus(iFriends, mapArray[row][col]);
+        rowArray[col] =status;
+        console.info("-->recalculateArray:status="+status);
+      }
+      newArray[row]=rowArray;
+    }
+
+    mapArray = newArray;    
+
+    console.info("<--recalculateArray");
+  }
+
+  function CopyArray()
+  {}
+
+  function simpleDraw()
+  {
+    console.info("-->simpleDraw");
+    myArea = document.getElementById("myArea");
+
+    myArea.innerHTML="";
+
+    for(row=0; row < mapArray.length; row++)
+    {
+      for(column=0; column < mapArray[row].length; column++ )
+      {
+
+        if (mapArray[row][column]=="0")
+        {
+        myArea.innerHTML += "-";
+        }
+        else
+        {
+          myArea.innerHTML += "X";
+        }
+      }
+      myArea.innerHTML += "<br/>";
+    }
+
+    console.info("<--simpleDraw");
+  }
+
+  var iCountRedraw=0;
+  function reDraw()
+  {
+    recalculateArray();
+    simpleDraw();
+    iCountRedraw++;
+  }
+
+  function initDraw()
+  {
+    initArraySimple();
+    simpleDraw();
+  }
+
+</script>
+
+<body>
+
+  <h1>Game of Life</h1>
+
+  <button type="button" onclick="simpleDraw()">simpleDraw</button>
+  <button type="button" onclick="initDraw()">initDraw</button>
+  <button type="button" onclick="reDraw()">reDraw</button>
+
+  <div id="myArea" class="myMap" style="border-color:blue; border-style:solid">
+map
+  </div>
+
+    
+
+
+
+</body>
+</html>
