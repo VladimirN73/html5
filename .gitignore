@@ -5,6 +5,7 @@
 /.vs/config/applicationhost.config
 *.suo
 .vs/*
+.vscode/*
 .bin/*
 .obj/*
 *.user
